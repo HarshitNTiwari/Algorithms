@@ -21,7 +21,7 @@ int main(){
         arr.push_back(k);
     }   
 
-    int sum=0;
+    int sum=0;  
     for(int i=0;i<n;i++)
         sum=sum+arr[i];
 
@@ -63,14 +63,11 @@ int minSubsetSumDiff(vector<int> arr,int n,int sum){
     // which are a possible value for a subset sum
     vector<int> vec;            //To store the possible values of sum1
     for(int i=0; i<=(sum+1)/2;i++){
-        if(dp[n][i]==true)
+        if(dp[n][i]==true) //Looking for true values in last row of dp matrix
             vec.push_back(i);
     }
     
-    int diff=INT32_MAX ; //To store the value of minimum difference
-    for(int i=0; i<vec.size();i++){
-        diff= min(diff,abs(sum-2*vec[i]));
-    }    
-
+    //To store the value of minimum difference 
+    int diff=  abs(sum-2*vec[vec.size()-1]);
     return diff;   
 }
