@@ -1,3 +1,9 @@
+/*
+Author: Harshit Tiwari
+Date: 30-03-2022
+https://practice.geeksforgeeks.org/problems/minimum-sum-partition3317/1
+*/
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -53,15 +59,18 @@ int minSubsetSumDiff(vector<int> arr,int n,int sum){
     vector<vector<bool>> dp(n+1,vector<bool> (sum+1,true));
     SubsetSum(arr,sum,n,dp);
 
-    vector<int> vec;
-    for(int i=0; i<(sum+1)/2;i++){
+    // The last row of dp matrix now contains 'true' for the values of 'sum'
+    // which are a possible value for a subset sum
+    vector<int> vec;            //To store the possible values of sum1
+    for(int i=0; i<=(sum+1)/2;i++){
         if(dp[n][i]==true)
             vec.push_back(i);
     }
-    int diff=INT32_MAX ;
+    
+    int diff=INT32_MAX ; //To store the value of minimum difference
     for(int i=0; i<vec.size();i++){
-        diff= min(diff,sum-2*vec[i] );
+        diff= min(diff,abs(sum-2*vec[i]));
     }    
 
-    return diff;
+    return diff;   
 }
