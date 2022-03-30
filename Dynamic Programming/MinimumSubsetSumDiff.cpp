@@ -4,6 +4,9 @@
 
 using namespace std;
 
+bool SubsetSum(vector<int> arr, int Sum, int n, vector<vector<bool>> &dp);
+int minSubsetSumDiff(vector<int> arr,int n,int sum);
+
 int main(){
     int n;  cin>>n;            //Total number of nummbers in arr
     vector<int> arr;           //Given array of numbers
@@ -49,4 +52,16 @@ int minSubsetSumDiff(vector<int> arr,int n,int sum){
     //dp matrix to store answers for the subproblems initialized with true
     vector<vector<bool>> dp(n+1,vector<bool> (sum+1,true));
     SubsetSum(arr,sum,n,dp);
+
+    vector<int> vec;
+    for(int i=0; i<(sum+1)/2;i++){
+        if(dp[n][i]==true)
+            vec.push_back(i);
+    }
+    int diff=INT32_MAX ;
+    for(int i=0; i<vec.size();i++){
+        diff= min(diff,sum-2*vec[i] );
+    }    
+
+    return diff;
 }
