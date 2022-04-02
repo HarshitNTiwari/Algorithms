@@ -15,6 +15,8 @@ long long int NthCatalan(int n);
 int main(){
     int n; cin>>n;
     cout<<NthCatalan(n)<<endl;
+
+    return 0;
 }
 
 long long int NthCatalan(int n){
