@@ -4,8 +4,7 @@ Date: 01-04-2022
 https://practice.geeksforgeeks.org/problems/ncr1019/1#
 */
 
-// This is the memoization based implementation. 
-// However, it will give TLE for large inputs on gfg. Tabulation implementation works here.
+// This will give TLE for large inputs on gfg. Tabulation DP works here.
 
 #include <iostream>
 #include <vector>

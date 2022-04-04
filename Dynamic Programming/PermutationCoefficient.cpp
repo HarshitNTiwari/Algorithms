@@ -4,7 +4,7 @@ Date: 02-04-2022
 https://www.geeksforgeeks.org/permutation-coefficient/
 */
 
-// This is the dynamic programming approach.
+// This is the dynamic programming approach. Simpler implementations exist.
 
 #include <iostream>
 #include <vector>

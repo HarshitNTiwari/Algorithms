@@ -5,7 +5,7 @@ https://leetcode.com/problems/counting-bits/
 */
 
 //This solution has time complexity as O(nlogn). 
-//A better approach using DP with complexity O(n) also exists: See, CountingBits_DP.cpp
+//A better approach using DP with complexity O(n) also exists. See: Dynamic Programming/CountingBits_DP.cpp
 
 #include <iostream>
 #include <vector>
