@@ -29,7 +29,7 @@ int solve(long long nStairs,vector<long long>& dp){
     // Checking if the value has already been computed and exists in dp array
     if(dp[nStairs]!=-1)
         return ((dp[nStairs]) % M);
-    // Recursive code
+    // Recursive code:
     return dp[nStairs]=(((solve(nStairs-1,dp) % M)+(solve(nStairs-2,dp) % M))) % M;
 }
 
