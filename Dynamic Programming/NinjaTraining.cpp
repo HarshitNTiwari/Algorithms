@@ -1,10 +1,10 @@
-#include <iostream>
 /*
 Author: Harshit Tiwari
 Date: 05-04-2022
 https://www.codingninjas.com/codestudio/problems/ninja-s-training_3621003
 */
 
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -57,11 +57,13 @@ int ninjaTraining(int n, vector<vector<int>> &points)
 {
     vector<vector<int>> dp(n, vector<int> (3,-1));
     
+    // calculating values of the last row of dp matrix
     dp[n-1][0] = solve(n-1,0,points,dp);
     dp[n-1][1] = solve(n-1,1,points,dp);
     dp[n-1][2] = solve(n-1,2,points,dp);
    	
     int ans=0;
+    // returning maximum value in the last row of dp matrix
   	for(int i=0; i<3; i++){
         ans = max(ans, dp[n-1][i]);
     }
