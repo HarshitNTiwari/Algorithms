@@ -1,10 +1,10 @@
 /*
 Author: Harshit Tiwari
 Date: 06-04-2022
-https://www.codingninjas.com/codestudio/problems/total-unique-paths_1081470
+https://leetcode.com/problems/unique-paths/
 */
 
-// This is recursive and memoized solution. It may give TLE for large inputs.
+// This is recursive and memoized solution. It may give TLE for very large inputs.
 
 #include <iostream>
 #include <vector>
