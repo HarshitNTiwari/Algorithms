@@ -37,6 +37,9 @@
 *.app
 
 #Text file
-*.txt
+input.txt
+output.txt
+
+trash.cpp
 
 # End of https://www.toptal.com/developers/gitignore/api/c++

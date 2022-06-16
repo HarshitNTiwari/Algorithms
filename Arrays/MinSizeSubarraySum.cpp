@@ -4,7 +4,7 @@ Date: 14-06-2022
 https://leetcode.com/problems/minimum-size-subarray-sum/
 */
 
-// This is solve using sliding window technique. Note, here that the size of the window is varying.
+// This is solved using sliding window technique. Note, here that the size of the window is varying.
 
 class Solution {
 public:
