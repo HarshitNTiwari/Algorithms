@@ -15,7 +15,7 @@ public:
         for (int i = 0; i < nums.size(); i++) {
             p = p * nums[i]; end = i;
             if (p < k) {
-                ans += count + 1;
+                ans += count + 1;  //This is the imp. point to catch
                 count++;
             }
             else {
