@@ -4,6 +4,7 @@ Date: 21-06-2022
 https://leetcode.com/problems/contains-duplicate/
 */
 
+// TC : O(n)
 
 class Solution {
 public:

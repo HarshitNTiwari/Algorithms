@@ -4,6 +4,7 @@ Date: 22-06-2022
 https://leetcode.com/problems/group-anagrams/
 */
 
+// TC : O(n) ; n = no. of strings in 'strs' array
 
 class Solution {
 public:
@@ -13,7 +14,7 @@ public:
         
         for(int i=0; i<strs.size(); i++){
             string temp = strs[i];
-            sort(temp.begin(), temp.end());
+            sort(temp.begin(), temp.end());  //this is going to take constant time
             if(mp.find(temp)==mp.end())
                 mp.insert(pair<string, vector<string>>(temp, vector<string>()));   //inserting sorted form of a string as key
             mp[temp].push_back(strs[i]);                                           //inserting string with same sorted form as temp, as value

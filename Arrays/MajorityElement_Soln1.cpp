@@ -5,7 +5,7 @@ https://leetcode.com/problems/majority-element/
 */
 	
 // TC: O(n) and SC: O(n)
-// A better solution with O(1) SC exists.
+// A better solution with SC: O(1) exists : Arrays/MajorityElement_Soln2.cpp
 
 class Solution {
 public:

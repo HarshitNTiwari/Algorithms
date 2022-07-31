@@ -3,14 +3,14 @@ using namespace std;
 
 //Creating a class for the node
 class Node{
-    public:
+public:
     int data;
     Node* next;
 
     // Creating a constructor
     Node(int data){
-        this -> data=data;
-        this -> next=NULL;
+        this -> data = data;
+        this -> next = NULL;
     }
 
     //destructor
@@ -21,7 +21,7 @@ class Node{
             delete next;
             this->next = NULL;
         }
-        cout << " memory is free for node with data " << value << endl;
+        std::cout << " memory is free for node with data " << value << std::endl;
     }
 };
 
@@ -115,64 +115,8 @@ void deleteNode(int position, Node* &head, Node* &tail){
     }
 }
 
-//Recursive function to reverse a Linked List
-//It will return head of the reversed Linked List
-Node* reverse1(Node* &head){
-    //base condition: either the list is empty or 
-    //the list contains just a single node 
-    if(head==NULL || head->next==NULL){
-        return head;
-    }
 
-    // newHead is the head pointer of the smaller 
-    // reversed list
-    Node* newHead= reverse1(head->next); 
-    head->next->next=head;
-    head->next=NULL;
-
-    return newHead;
-}
-
-//Recursive function to reverse a Linked List
-void reverse(Node* &head, Node* current, Node* prev){
-    //base condition: when current pointer reaches 
-    //the last node
-    if(current==NULL){
-        head=prev;
-        return;
-    }
-    //Forward pointer to preserve the remaining Linked List
-    Node* Forward= current-> next;
-    //Reverse the remaining Linked list by recursive call
-    reverse(head,Forward,current);
-    //Reverse the current node;
-    current->next=prev;
-}
-
-
-//Iterative function to reverse a Linked List
-Node* reverseLinkedList(Node* &head){
-    //if Linked List is empty or there's just 1 node
-    //we simply return that node
-    if(head==NULL || head->next==NULL)
-        return head;
-
-    Node* prev = NULL;
-    Node* current = head;
-    
-    //traversing till we reach the last node
-    while(current!=NULL){
-        //Forward pointer to preserve the remaining Linked List
-        Node* forward = current->next;
-        current->next = prev;
-        //updating the previous and current pointers
-        prev = current;
-        current = forward;
-    }
-    head=prev;
-    return prev;
-}
-// Function to find length of a Linked List
+// Function to find length of a Linked List : O(n)
 int getLength(Node* head){
     int len=0; //to store the length 
     //Traversing the entire Linked List
@@ -183,53 +127,14 @@ int getLength(Node* head){
     return len;
 }
 
-// Function to return middle node
-Node* findMiddle(Node* head){
-    int len= getLength(head);
-    //Position of middle node
-    int middle= (len/2)+1; 
-    Node* temp= head;
-    int cnt=1;
-    // traversing till middle node is reached
-    while(cnt<middle){
-        temp=temp->next;
-        cnt++;
-    }
-    return temp;
-}
-
-// Function to return middle node
-Node* getMiddle(Node* head){
-    //If Linked List is empty or 
-    // contains a single node
-    if(head==NULL || head->next==NULL)
-        return head;
-    // Linked List comtains 2 nodes
-    // return the 2nd node 
-    if(head->next->next==NULL)
-        return head->next;
-
-    Node* slow=head;
-    Node* fast=head->next;
-
-    while(fast!=NULL){
-        fast=fast->next;
-        if(fast!=NULL)
-            fast=fast->next;
-        slow=slow->next;
-    }
-    return slow;
-}
-
-
 int main(){
 
     //Creating an object of Node class;
     Node* node1 = new Node(10);
 
     //Printing the values of data and next pointer 
-    cout<< node1 -> data <<endl;
-    cout<< node1 -> next <<endl;
+    std::cout<< node1 -> data <<std::endl;
+    std::cout<< node1 -> next <<std::endl;
 
     //head pointed to node1
     Node* head = node1;
