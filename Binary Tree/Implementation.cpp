@@ -41,7 +41,7 @@ int main(){
     // levelorder_traversal(root);
     // levelOrder_LineByLine(root);
     // levelOrder_LineByLine_2(root);
-    cout<<size_tree(root)<<endl; 
+    std::cout<<size_tree(root)<<endl; 
     return 0;
 }
 
@@ -51,7 +51,7 @@ int main(){
 void inorder_traverse(Node *root){
     if(root!=NULL){
         inorder_traverse(root->left);
-        cout<<root->key<<" ";
+        std::cout<<root->key<<" ";
         inorder_traverse(root->right);
     }
     return;
@@ -60,7 +60,7 @@ void inorder_traverse(Node *root){
 //Preorder Traversal (Root-Left-Right)
 void preorder_traverse(Node *root){
     if(root!=NULL){
-        cout<<root->key<<" ";
+        std::cout<<root->key<<" ";
         preorder_traverse(root->left);
         preorder_traverse(root->right);
     }
@@ -72,7 +72,7 @@ void postorder_traverse(Node *root){
     if(root!=NULL){
         postorder_traverse(root->left);
         postorder_traverse(root->right);
-        cout<<root->key<<" ";
+        std::cout<<root->key<<" ";
     }
     return;
 }
@@ -160,8 +160,8 @@ void levelOrder_LineByLine_2(Node *root){
             q.pop();
             if(currNode==NULL){ //When NULL is encountered that means we've reached end of current level
                 cout<<endl;  //so we print new line
-                q.push(NULL);
-                continue;
+                q.push(NULL); //when end of current level is reahced, it means that all the children of current level have already been   
+                continue;         //pushed into the queue. So, we push another NULL which will mark the end of the next level
             }
             cout<<currNode->key<<" ";
             if(currNode->left!=NULL)
