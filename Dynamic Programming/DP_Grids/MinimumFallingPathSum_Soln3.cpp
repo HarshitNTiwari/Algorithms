@@ -4,8 +4,8 @@ Date: 06-07-2022
 https://leetcode.com/problems/minimum-falling-path-sum/
 */
 
-// Tabulation (bottom up) DP approach -- Space Optimization
-// SC: O(n)
+// Tabulation (bottom up) DP approach   +   Space Optimization
+// SC: O(n)  (using just two 1D arrays)
 
 class Solution {
 private:
@@ -40,7 +40,7 @@ public:
 	int minFallingPathSum(vector<vector<int>>& matrix) {
 		int n = matrix.size();
 		int ans = INT_MAX;
-		vector<int> dp(n, INT_MAX); //1D array to store answers of previous answers
+		vector<int> dp(n, INT_MAX); //1D array to store answers of previous row
 
 		return solve(n, matrix, dp);
 	}
