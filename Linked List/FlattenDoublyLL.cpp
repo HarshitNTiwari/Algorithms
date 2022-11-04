@@ -21,9 +21,11 @@ public:
         stack<Node*> st;
         Node* curr = head;
         while (curr != NULL) {
+            //if current node has a child
             if (curr->child != NULL) {
                 if (curr->next != NULL)
                     st.push(curr->next);
+                //making the req changes in pointer connections
                 curr->next = curr->child;
                 curr->child = NULL;
                 Node* temp = curr;
