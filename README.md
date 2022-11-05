@@ -1,2 +1,2 @@
 # Algorithms
-Solutions/implementation of various algorithmic problems. Link to original problem in the header of each file. 
+Solutions/implementations of various algorithmic problems. Link to the original problem in the header of each file. 
