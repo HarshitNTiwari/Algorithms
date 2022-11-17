@@ -1,20 +1,21 @@
-#include <iostream> 
+#include <iostream>
 
 #define MAX 100  //maximum size of the stack
 
 // Creating a Stack class
-class StackUsingArray{
+class StackUsingArray {
 public:
 	int top;         //to track the index of the topmost key
 	int stack[MAX];  //array to store stack elements
 
 	// constructor
-	StackUsingArray(){
+	StackUsingArray() {
 		top = -1;   //initializing the index of the topmost key as -1, since there are no keys yet
 	}
 
+	// destructor
 	~StackUsingArray();
-	
+
 	// Member functions for various Stack operations:
 	void push(int key);
 	void pop();
@@ -23,10 +24,10 @@ public:
 };
 
 // function to push key in the stack : O(1)
-void StackUsingArray::push(int key){
+void StackUsingArray::push(int key) {
 	// if stack is full
-	if (top >= (MAX-1)){
-		std::cout<<"Error: Stack Overflow"<<std::endl;
+	if (top >= (MAX - 1)) {
+		std::cout << "Error: Stack Overflow" << std::endl;
 		return;
 	}
 	top++;
@@ -35,10 +36,10 @@ void StackUsingArray::push(int key){
 }
 
 // function to remove top key from the stack : O(1)
-void StackUsingArray::pop(){
+void StackUsingArray::pop() {
 	// if stack is empty
-	if(top < 0){
-		std::cout<<"Error: Stack Underflow"<<std::endl;
+	if (top < 0) {
+		std::cout << "Error: Stack Underflow" << std::endl;
 		return;
 	}
 	top--;
@@ -46,31 +47,31 @@ void StackUsingArray::pop(){
 }
 
 // function to get top key from the stack : O(1)
-int StackUsingArray::peek(){
+int StackUsingArray::peek() {
 	// if stack is empty
-	if(top < 0){
-		std::cout<<"Error: Stack is empty"<<std::endl;
+	if (top < 0) {
+		std::cout << "Error: Stack is empty" << std::endl;
 		return -1;
 	}
 	return stack[top];
 }
 
 // function to check if the stack is empty : O(1)
-bool StackUsingArray::isEmpty(){
+bool StackUsingArray::isEmpty() {
 	return top < 0;
 }
 
-int main(){
-	// creating an object od StackUsingArray class
+int main() {
+	// creating an object of StackUsingArray class
 	StackUsingArray st;
-	
+
 	st.push(10);
 	st.push(20);
 	int top = st.peek();
 	st.pop();
 
-	if(!st.isEmpty())
-		std::cout<<st.peek()<<std::endl;
+	if (!st.isEmpty())
+		std::cout << st.peek() << std::endl;
 
 	return 0;
 }

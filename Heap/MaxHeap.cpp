@@ -3,8 +3,14 @@
 
 using namespace std;
 
-class MinHeap {
+static int capacity = 100;
+
+class MaxHeap {
+public:
 	vector<int> arr;
+	MaxHeap(int capacity) {
+		arr = vector<int>(capacity, -1);
+	}
 	int size = 0;
 	int leftChildIndex(int rootIndex);
 	int rightChildIndex(int rootIndex);
@@ -12,26 +18,30 @@ class MinHeap {
 	void insert(int val);
 };
 
-int MinHeap::leftChildIndex(int rootIndex) {
+int MaxHeap::leftChildIndex(int rootIndex) {
 	return (2 * rootIndex + 1);
 }
 
-int MinHeap::rightChildIndex(int rootIndex) {
+int MaxHeap::rightChildIndex(int rootIndex) {
 	return (2 * rootIndex + 2);
 }
 
-int MinHeap::parentIndex(int rootIndex) {
+int MaxHeap::parentIndex(int rootIndex) {
 	return (rootIndex - 1) / 2;
 }
 
-void MinHeap::insert(int val) {
+// Heapify operation : log(n)
+void MaxHeap::insert(int val) {
+	if (size > capacity)
+		return;
 	arr[size] = val;
 	size++;
 	int i = size - 1;
-	while ( i != 0 && arr[parentIndex(i)] > arr[i]) {
-		swap(arr[i], arr[parentIndex(i)]);
+	while (i != 0 && arr[parentIndex(i)] < arr[i]) {
+		swap(arr[parentIndex(i)], arr[i]);
 		i = parentIndex(i);
 	}
+	return;
 }
 
 int main() {
@@ -41,10 +51,14 @@ int main() {
 		int k; cin >> k;
 		input.push_back(k);
 	}
-	MinHeap heap;
+	MaxHeap heap(capacity);
 	for (int i = 0; i < N; i++) {
 		heap.insert(input[i]);
 	}
 
+	cout << "The constructed heap is: ";
+	for (int i = 0; i < N; i++) {
+		cout << heap.arr[i] << ", ";
+	}
 	return 0;
 }
